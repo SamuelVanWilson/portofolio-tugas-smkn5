@@ -10,6 +10,12 @@ h2, #hero .wrapper span {font-size: 1.7em; font-weight: bold;}
 h2 > span {color: #FF2D20; margin-right: 4px;}
 p {font-size: 1.15em;}
 
+header.active-scroll, .active-scroll ul li a, .active-scroll h1 {
+    background-color: #FF2D20;
+    color: white;
+    padding: 4px 12px;
+}
+
 .card img {width: 100%; height: 200px; object-fit: cover;}
 .card-content {
     margin-top: 1em;
@@ -20,6 +26,8 @@ p {font-size: 1.15em;}
 .card{
     width: 30%;
     height: 20em;
+    transform: translateY(100px);
+    opacity: 0;
 }
 .card .content {
     padding: 4px 10px;
@@ -28,13 +36,17 @@ p {font-size: 1.15em;}
 .card .content a {color: #FF2D20; font-weight: 500;}
 
 
-a {text-decoration: none;}
+a {text-decoration: none; }
 header {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 12px;
+    transition: 300ms;
+    position: fixed;
+    z-index: 9999;
+
 }
 nav {
     width: 35vw;
@@ -102,9 +114,17 @@ footer {
 
 main article {margin-bottom: 4em;}
 main #about img {width: 100%; height: 8em; object-fit: cover;}
+.slide-up {animation: slide-card 1.5s forwards;}
 
 @keyframes spin-text {
     0%, 100% {transform: translateY(0);}
     25%, 75%{transform: translateY(-1.25em);}
     50% {transform: translateY(-2.5em);}
+}
+
+@keyframes slide-card {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
